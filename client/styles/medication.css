@@ -1,0 +1,25 @@
+.medication {
+    margin: 10px;
+    text-align: center;
+}
+
+.medication-card {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+.medication-name {
+    margin: 10px 0;
+    font-size: 18px;
+}
+.medication-description {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+.add-med {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0 0 0;
+    padding: 5px;
+    color: var(--color-secondary);
+}

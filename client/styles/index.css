@@ -1,0 +1,90 @@
+
+nav{
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+}
+.logo{
+    width: 60px;
+    height: 30px;
+    border-radius: 2px;
+}
+ul{
+    margin: auto 10px;
+}
+li{
+    display: inline;
+}
+a{
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 5px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.pets{
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    color: var(--color-headings);
+    font-family: var(--main-font);
+    font-size: 20px;
+    margin: auto 0;
+}
+.add-btn{
+    background-color: var(--color-primary);
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+.add-ancor{
+    color: var(--color-secondary);
+    
+}
+.pet-card{
+    width: 250px;
+    height: 150px;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.pet-name{
+    margin: 10px 0;
+    font-size: 18px;
+    color: var(--color-headings);
+    font-family: var(--main-font);
+}
+.date{
+    color: var(--color-headings);
+    font-size: 14px;
+    margin: 5px 0;
+}
+.client-email{
+    margin: 5px 0 20px 0;
+    color: var(--color-headings);
+}
+.btn-view{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.btn-delete{
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    margin: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
