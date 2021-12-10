@@ -4,16 +4,33 @@ const filterPrescription = document.querySelector('.btn.presc');
 const filterLog = document.querySelector('.btn.logs');
 const prescButton = document.querySelector('.prescription');
 const logButton = document.querySelector('.log');
+const id =  location.search.substring(2)
+
+const getPets = async () => {
+    const res = await fetch('http://localhost:5000/pets');
+    const data = await res.json();
+    
+    data.map(pet => {
+        spanName.textContent = `${pet.name}`;
+
+        prescButton.onclick = () => {
+            window.location.href = `http://127.0.0.1:5500/client/html/addPrescription.html?=${id}`
+        };
+
+        logButton.onclick = () => {
+            window.location.href = `http://127.0.0.1:5500/client/html/addLog.html?=${id}`
+        }
+
+    })
+}
+getPets()
 
 const petsLog = async () => {
-    const id = location.search.substring(2);
-    
     const response = await fetch(`http://localhost:5000/prescriptions/${id}`);
     const logs = await response.json();
     wrapper.innerHTML = '';
         
         logs.map(pet => {
-        spanName.textContent = `${pet.name}`;
         const logInfo = document.createElement('div');
         logInfo.className = 'log-info'
         const div = document.createElement('div');
@@ -69,7 +86,7 @@ const petsLog = async () => {
         });
 
         filterPrescription.addEventListener('click', () => {
-            if (div.style.display == 'block') {
+            if (div.style.display === 'block') {
                 filterPrescription.style.backgroundColor = 'var(--color-secondary)'
                 div.style.display = 'none'
                 filterPrescription.style.border = '1px solid var(--color-primary)'

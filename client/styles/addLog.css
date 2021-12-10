@@ -1,0 +1,9 @@
+.add-log {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 5px;
+    margin: 10px 20px ;
+    padding: 5px 50px;
+    color: var(--color-secondary);
+    
+}

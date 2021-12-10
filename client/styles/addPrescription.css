@@ -4,8 +4,9 @@ h2 {
 form {
     justify-content: center;
 }
+
 select {
-    border: none;
+    width: 100%;
     margin: 10px auto;
 }
 .add-presc {
@@ -19,5 +20,7 @@ select {
 }
 textarea {
     width: 100%;
-    text-align: center;
+    height: 150px;
+    margin: 10px 0;
+    padding: 5px;
 }

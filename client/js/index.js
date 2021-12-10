@@ -1,5 +1,5 @@
 const wrapper = document.querySelector('.wrapper')
-const DB = 'http://localhost:5000/pets'
+const DB = 'http://localhost:5000/pets';
 
 
 const displayData = async () => {

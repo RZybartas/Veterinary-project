@@ -1,10 +1,13 @@
 @import "./reset.css";
 @import "./variables.css";
+@import "./login.css";
 @import "./index.css";
 @import "./logs.css";
 @import "./addPet.css";
 @import "./addPrescription.css";
 @import "./medication.css";
+@import "./addLog.css";
+
 
 
 
