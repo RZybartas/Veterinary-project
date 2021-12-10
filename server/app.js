@@ -1,42 +1,19 @@
-import express from "express";
-import cors from "cors";
-import mysql from "mysql2/promise";
-import { config } from "dotenv";
+const express = require('express');
+const cors = require('cors');
+const mysql = require('mysql2/promise');
 
-import petsRoute from "./routes/v1/pets.js";
-import medsRoute from "./routes/v1/medications.js";
-import logsRoute from "./routes/v1/logs.js";
-import prescRoute from "./routes/v1/prescriptions.js"
+const { port, dbConfig} = require('./config')
+const petsRoute = require('./routes/v1/pets');
+const medsRoute = require('./routes/v1/medications');
+const logsRoute = require('./routes/v1/logs');
+const prescRoute = require('./routes/v1/prescriptions');
 
-config();
 
 
 const main = async () => {
     const app = express();
-    
-    
     try {
-        const {
-            PORT,
-            MYSQL_HOST,
-            MYSQL_PORT,
-            MYSQL_USER,
-            MYSQL_PW,
-            MYSQL_DB,
-        }= process.env;
-        
-        
-        
-        const connection = await mysql.createConnection({
-            host: MYSQL_HOST,
-            user: MYSQL_USER,
-            password: MYSQL_PW,
-            database: MYSQL_DB,
-            port: MYSQL_PORT
-        });
-        
-        
-
+        const connection = await mysql.createConnection(dbConfig);
         const createTablePets = `
         CREATE TABLE IF NOT EXISTS pets(
         id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -54,7 +31,7 @@ const main = async () => {
         status TEXT NOT NULL,
         PRIMARY KEY (id),
         FOREIGN KEY (pet_id) REFERENCES pets (id)
-        )`
+        )`;
 
         const createTableMedications = `
         CREATE TABLE IF NOT EXISTS medications(
@@ -62,7 +39,7 @@ const main = async () => {
         name VARCHAR(50) NOT NULL,
         description TEXT NOT NULL,
         PRIMARY KEY (id)
-        )`
+        )`;
 
         const createTablePrescriptions = `
         CREATE TABLE IF NOT EXISTS prescriptions (
@@ -76,10 +53,19 @@ const main = async () => {
         FOREIGN KEY (medication_id) REFERENCES medications (id),
         FOREIGN KEY (pet_id) REFERENCES pets (id) 
         )`;
+
+        const createTableUsers =`
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER AUTO_INCREMENT NOT NULL,
+            email VARCHAR(200) NOT NULL,
+            password TEXT NOT NULL,
+            PRIMARY KEY (id)
+        )`
         await connection.query(createTablePets);
         await connection.query(createTableLogs);
         await connection.query(createTableMedications);
         await connection.query(createTablePrescriptions);
+        await connection.query(createTableUsers);
         
         app.use(express.json());
 
@@ -90,10 +76,14 @@ const main = async () => {
         app.use('/pets', petsRoute);
         app.use('/meds', medsRoute);
         app.use('/logs', logsRoute);
-        app.use('/prescriptions', prescRoute)
+        app.use('/prescriptions', prescRoute);
+
+        app.get('*', (req, res) => {
+            res.status(404).send({ error: 'Page not found'})
+        })
     
-        app.listen(PORT, () => {
-            console.log(`Server running on port: ${PORT}`)
+        app.listen(port, () => {
+            console.log(`Server running on port: ${port}`)
         })
         
     } catch (error) {

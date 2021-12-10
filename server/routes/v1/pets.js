@@ -1,6 +1,6 @@
-import { Router } from "express";
+const express = require('express');
 
-const router = Router();
+const router = express.Router();
 
 router.get('/', async (req, res) => {
     const { mysql } = req.app;
@@ -11,10 +11,7 @@ router.get('/', async (req, res) => {
         
         const [data] = await mysql.query(query)
 
-        const pets = data
-
-        res.status(201).send(pets)
-        
+        res.status(201).send(data)
     } catch (error) {
         console.error(error,"Can't get pets from database")
     }
@@ -63,4 +60,4 @@ router.delete('/:id', async (req, res) => {
 
 })
 
-export default router;
+module.exports = router;

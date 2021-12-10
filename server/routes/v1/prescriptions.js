@@ -1,6 +1,6 @@
-import { Router } from "express";
+const express = require('express');
 
-const router = Router();
+const router = express.Router();
 
 router.get('/:id', async (req, res) => {
     const { mysql } = req.app;
@@ -38,4 +38,4 @@ router.post('/', async (req,res) => {
     res.status(201).send(data)
 });
 
-export default router;
+module.exports = router;
