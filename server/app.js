@@ -7,7 +7,7 @@ const petsRoute = require('./routes/v1/pets');
 const medsRoute = require('./routes/v1/medications');
 const logsRoute = require('./routes/v1/logs');
 const prescRoute = require('./routes/v1/prescriptions');
-
+const auth = require('./routes/v1/auth');
 
 
 const main = async () => {
@@ -59,6 +59,7 @@ const main = async () => {
             id INTEGER AUTO_INCREMENT NOT NULL,
             email VARCHAR(200) NOT NULL,
             password TEXT NOT NULL,
+            UNIQUE (email),
             PRIMARY KEY (id)
         )`
         await connection.query(createTablePets);
@@ -77,6 +78,9 @@ const main = async () => {
         app.use('/meds', medsRoute);
         app.use('/logs', logsRoute);
         app.use('/prescriptions', prescRoute);
+        app.use('/v1/auth/', auth);
+       
+        
 
         app.get('*', (req, res) => {
             res.status(404).send({ error: 'Page not found'})

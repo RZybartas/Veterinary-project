@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
@@ -12,20 +12,20 @@
         <nav class="navbar">
             <img class="logo" src="../assets/PETTMED.png" alt="logo">
             <ul>
-                <li><a href="signUp.html">Sign Up</a></li>
+                <li><a href="login.html">Log In</a></li>
             </ul>
             </nav>
-    </header>
+        </header>
     <main>
-        <!-- Login form -->
+        <!-- Sign up form -->
         <div class="form-box">
-            <h2>Login</h2>
+            <h2>Sign Up</h2>
             <form class="form-group">
                 <input class="input-fields" type="email" name="email" placeholder="email" required>
                 <div class="email error "></div>
                 <input class="input-fields" type="password" name="password" placeholder="password" required>
                 <div class="pass error"></div>
-                <button  class="submit" type="submit">Login</button>
+                <button  class="submit" type="submit">Sign up</button>
             </form>
         </div>
     </main>
@@ -43,32 +43,22 @@
             const email = form.email.value;
             const password = form.password.value;
             try {
-                const res = await fetch("http://localhost:5000/v1/auth/login", {
+                const res = await fetch("http://localhost:5000/v1/auth/register", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        email,
-                        password,
-                    }),
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password }),
                 });
                 const data = await res.json();
-
                 
                 if (data.error) {
                     emailErr.textContent = "Incorrect email"
                     passErr.textContent = "Incorrect  password"
                 } else {
-                    location.assign('./index.html')
+                    location.assign('./login.html')
 
                 }
-
-                sessionStorage.setItem("token", data.token);
-
-                
-            } catch (error) {
-                console.log(error)
+            } catch (err) {
+                console.log(err)
             }
             
         })
