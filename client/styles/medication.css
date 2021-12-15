@@ -4,6 +4,7 @@
 }
 
 .medication-card {
+    text-align: center;
     margin-bottom: 10px;
     border: 1px solid #eee;
 }
@@ -16,10 +17,31 @@
     margin: 0 0 5px 0;
 }
 .add-med {
+    width: 60%;
     background-color: var(--color-primary);
+    justify-content: center;
     border: none;
     border-radius: 5px;
-    margin: 10px 0 0 0;
+    margin: 0 auto;
     padding: 5px;
     color: var(--color-secondary);
+}
+@media screen and (min-width: 576px){
+    .wrapper-meds {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .wrapper-meds {
+        grid-template-columns: repeat(3, auto);
+    }
+    
+}
+@media screen and (min-width: 1300px) {
+    .wrapper-meds {
+        grid-template-columns: repeat(4, auto);
+    }
 }

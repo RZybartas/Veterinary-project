@@ -29,9 +29,7 @@ const displayData = async () => {
     const del = document.createElement('button');
     del.className = 'btn-delete'
     del.innerText = 'Delete';
-
-   
-   
+    
     view.onclick = () => {
       window.location.href = `http://127.0.0.1:5500/client/html/log.html?=${pet.id}` 
     };

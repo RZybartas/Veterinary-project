@@ -1,36 +1,38 @@
-const wrapper = document.querySelector('.wrapper');
+const wrapperLog = document.querySelector('.wrapper-log');
 const spanName = document.querySelector('.log__pet-name');
 const filterPrescription = document.querySelector('.btn.presc');
 const filterLog = document.querySelector('.btn.logs');
 const prescButton = document.querySelector('.prescription');
 const logButton = document.querySelector('.log');
-const id =  location.search.substring(2)
 
 const getPets = async () => {
-    const res = await fetch('http://localhost:5000/pets');
+    const id =  location.search.substring(2)
+    const res = await fetch(`http://localhost:5000/pets/${id}`);
     const data = await res.json();
-    
-    data.map(pet => {
-        spanName.textContent = `${pet.name}`;
 
+    data.map(pets => {
+        spanName.textContent = `${pets.name}`;
         prescButton.onclick = () => {
-            window.location.href = `http://127.0.0.1:5500/client/html/addPrescription.html?=${id}`
-        };
-
-        logButton.onclick = () => {
-            window.location.href = `http://127.0.0.1:5500/client/html/addLog.html?=${id}`
-        }
-
-    })
+                window.location.href = `http://127.0.0.1:5500/client/html/addPrescription.html?=${id}`
+            };
+    
+            logButton.onclick = () => {
+                    window.location.href = `http://127.0.0.1:5500/client/html/addLog.html?=${id}`
+                }
+        
+            });
 }
-getPets()
-
+getPets();
+            
 const petsLog = async () => {
+    const id =  location.search.substring(2)
+    console.log(id)
     const response = await fetch(`http://localhost:5000/prescriptions/${id}`);
     const logs = await response.json();
-    wrapper.innerHTML = '';
-        
-        logs.map(pet => {
+    wrapperLog.innerHTML = '';
+    console.log(logs)
+    logs.map(pet => {
+        spanName.textContent = `${pet.name}`;
         const logInfo = document.createElement('div');
         logInfo.className = 'log-info'
         const div = document.createElement('div');
@@ -60,7 +62,7 @@ const petsLog = async () => {
         div.append(medName, medDesc, prescDate, prescComment);
         logCard.append(logStatus, logDesc);
         logInfo.append(div, logCard);
-        wrapper.appendChild(logInfo);
+        wrapperLog.appendChild(logInfo);
         
         prescButton.onclick = () => {
             window.location.href = `http://127.0.0.1:5500/client/html/addPrescription.html?=${id}`
@@ -101,7 +103,7 @@ const petsLog = async () => {
         })
     })
     
-    return wrapper
+    return wrapperLog
 }
 
 

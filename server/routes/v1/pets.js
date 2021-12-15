@@ -6,7 +6,21 @@ router.get('/', async (req, res) => {
     const { mysql } = req.app;
     try {
         const query = `SELECT id, name, dob, client_email FROM pets
-        WHERE archived = 0
+        WHERE archived = 0 
+        `;
+        
+        const [data] = await mysql.query(query)
+
+        res.status(201).send(data)
+    } catch (error) {
+        console.error(error,"Can't get pets from database")
+    }
+});
+router.get('/:id', async (req, res) => {
+    const { mysql } = req.app;
+    try {
+        const query = `SELECT id, name, dob, client_email FROM pets
+        WHERE id = ${mysql.escape(req.params.id)}
         `;
         
         const [data] = await mysql.query(query)

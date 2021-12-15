@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Pet</title>
+    <title>Add Prescription</title>
     <link rel="stylesheet" href="../styles/main.css">
     <script src="../js/addPresc.js" type="module" defer></script>
 </head>
@@ -18,16 +18,19 @@
                 </ul>
             </nav>
     </header>
-    <h2>Add Prescription</h2>
-    <form>
-        <div class="medication">
-            <select id="select" name="medication_id">
-                <option>Medication</option>
-        </div>
-        <div>
-            <textarea type="text" name="comment" placeholder="Comment"></textarea>
-        </div>
-        <button class="add-presc" type="submit">Add</button>
-    </form>
+    <main>
+        <h2>Add Prescription</h2>
+        <form class="form-presc">
+            <div class="medication">
+                <select id="select" name="medication_id">
+                    <option>Medication</option>
+            </div>
+            <div>
+                <textarea type="text" name="comment" placeholder="Comment"></textarea>
+            </div>
+            <button class="add-presc" type="submit">Add</button>
+        </form>
+    </main>
+    <footer>Copyright &copy PetMed 2021.All rights reserved </footer>
 </body>
 </html>

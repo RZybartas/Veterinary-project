@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Pet</title>
+    <title>Add Medication</title>
     <link rel="stylesheet" href="../styles/main.css">
     <script src="../js/addMeds.js" type="module" defer></script>
 </head>
@@ -18,15 +18,18 @@
                 </ul>
             </nav>
     </header>
-    <h2>Add Medication</h2>
-    <form>
-        <div>
-            <input type="text" name="name" placeholder="Medication Name" required>
-        </div>
-        <div>
-            <textarea type="text" name="description"></textarea> </textarea>
-        </div>
-        <button class="add-med" type="submit">Add</button>
-    </form>
+    <main>
+        <h2>Add Medication</h2>
+        <form class="form-meds">
+            <div>
+                <input type="text" name="name" placeholder="Medication Name" required>
+            </div>
+            <div>
+                <textarea type="text" name="description"></textarea> </textarea>
+            </div>
+            <button class="add-med" type="submit">Add</button>
+        </form>
+    </main>
+    <footer>Copyright &copy PetMed 2021.All rights reserved </footer>
 </body>
 </html>

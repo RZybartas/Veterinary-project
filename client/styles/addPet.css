@@ -3,21 +3,23 @@ form {
 	flex-direction: column;
     width: 200px;
     height: 200px;
-    margin: 25% auto;
+    margin: 5vh auto;
 }
 input {
-    width: 100%;
+    width: 105%;
     border-top: none;
     border-right: none;
     border-left: none;
+    color: #817b7b;
     border-bottom: 1px solid var(--color-primary);
     margin: 5px 0;
 }
 .add-pet {
+    width: 60%;
     background-color: var(--color-primary);
     border: none;
     border-radius: 5px;
-    margin: 10px 0 0 0;
+    margin: 10px auto;
     padding: 5px;
     color: var(--color-secondary);
 }

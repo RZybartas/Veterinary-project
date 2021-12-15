@@ -1,10 +1,9 @@
-const wrapper = document.querySelector('.wrapper');
-const DB = 'http://localhost:5000/meds';
+const wrapperMeds = document.querySelector('.wrapper-meds');
 
 const displayMeds = async () => {
-    const res = await fetch(DB);
+    wrapperMeds.innerHTML = "";
+    const res = await fetch('http://localhost:5000/meds');
     const data = await res.json();
-    console.log(data)
 
     data.map(medication => {
         const div = document.createElement('div');
@@ -17,9 +16,9 @@ const displayMeds = async () => {
         medDesc.textContent = medication.description;
 
         div.append(medName, medDesc);
-        wrapper.appendChild(div)
+        wrapperMeds.appendChild(div)
     })
-    return wrapper
+    return wrapperMeds
 }
 
 displayMeds()

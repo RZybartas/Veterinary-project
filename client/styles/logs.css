@@ -24,8 +24,10 @@
 }
 
 .add-btns {
+    display: flex;
+    justify-content: flex-end;
     width: 55%;
-    margin: auto 0 ;
+    margin: auto 0;
 }
 
 
@@ -77,15 +79,11 @@
     display: flex;
     margin: 5px 0 10px 0;
 }
-.wrapper{
-    
+.wrapper-log{
     text-align: center;
 }
 .log-info {
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid #eee;
-    border-top: none;
+    border: 1px solid #eee;
     margin-top: 10px;
 }
 
@@ -109,4 +107,31 @@
 .log-description {
     margin: 5px 0;
     font-family: var(--main-font);
+}
+@media screen and (min-width: 576px){
+    h2 {
+        font-size: 25px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .log__pet-name, .logs__pet-name, .paragraph {
+        font-size: 20px;
+    }
+    .prescription, .log, .btn.logs, .btn.presc {
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .wrapper-log {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+    }
+    
+}
+@media screen and (min-width: 1300px) {
+    .wrapper-log {
+        grid-template-columns: repeat(3, auto);
+        gap: 10px;
+    }
 }

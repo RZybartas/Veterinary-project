@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const formPresc = document.querySelector('.form-presc');
 const input = document.querySelectorAll('input');
 const medDiv = document.querySelector('.medication');
 const button = document.querySelector('.add-presc');
@@ -12,19 +12,18 @@ const getMeds = async () => {
         select.name = "medication_id";
         let optInput = document.createElement('option');
         optInput.value = meds.id;
-        optInput.textContent = meds.name
+        optInput.textContent = meds.name;
         select.append(optInput);
         medDiv.append(select, textArea, button);
-        form.appendChild(medDiv)
-        console.log(optInput)
+        formPresc.appendChild(medDiv);
     })
 }
 getMeds()
 input.innerHtml = "";
 
-form.addEventListener('submit', async (e) => {
+formPresc.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const formElements = new FormData(form);
+    const formElements = new FormData(formPresc);
     const [medication_id, comment] = formElements.values();
     const pet_id = location.search.substring(2);
 
@@ -37,7 +36,7 @@ form.addEventListener('submit', async (e) => {
         
         const data = await req.json();
         window.location.reload(true)
-        console.log(data)
+        return data
     } catch (error) {
         throw new Error(error)
     }
