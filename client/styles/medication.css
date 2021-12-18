@@ -17,7 +17,7 @@
     margin: 0 0 5px 0;
 }
 .add-med {
-    width: 60%;
+    width: 100px;
     background-color: var(--color-primary);
     justify-content: center;
     border: none;

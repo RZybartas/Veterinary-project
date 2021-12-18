@@ -5,11 +5,12 @@ select {
     border: none;
 }
 .add-presc {
+    width: 100px;
     background-color: var(--color-primary);
     border: none;
     border-radius: 5px;
-    margin: 10px 20px ;
-    padding: 5px 50px;
+    margin: auto 0 ;
+    padding: 5px;
     color: var(--color-secondary);
     
 }
@@ -19,4 +20,16 @@ textarea {
     height: 150px;
     margin: 10px 0;
     padding: 5px;
+}
+@media screen and (min-width: 576px){
+   
+    
+}
+@media screen and (min-width: 1000px) {
+    select {
+        width: 102%;
+        border: 1px solid var(--color-primary);
+    }
+    
+  
 }

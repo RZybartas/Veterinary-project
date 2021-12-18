@@ -15,11 +15,31 @@ input {
     margin: 5px 0;
 }
 .add-pet {
-    width: 60%;
+    width: 100px;
     background-color: var(--color-primary);
     border: none;
     border-radius: 5px;
     margin: 10px auto;
     padding: 5px;
     color: var(--color-secondary);
+}
+@media screen and (min-width: 576px){
+    form {
+        width: 400px;
+        height: 400px;
+    }
+    input {
+        width: 103%;
+    }
+    
+}
+@media screen and (min-width: 1000px) {
+    form {
+        width: 600px;
+        height: 600px;
+    }
+    input {
+        width: 102%;
+    }
+  
 }

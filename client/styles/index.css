@@ -1,153 +1,16 @@
-
-nav{
-    width: 80%;
-    display: flex;
-    height: 40px;
-    margin: 0 auto;
-    justify-content: space-between;
-    padding: 5px;
-}
-.line {
-    border-bottom: 1px solid #eee;
-}
-.logo{
-    width: 60px;
-    height: 30px;
-    border-radius: 2px;
-    margin: auto 0;
-}
-ul{
-    margin: auto 0;
-}
-li{
-    display: inline;
-}
-a{
-    color: var(--color-primary);
-    text-decoration: none;
-    margin-left: 3vw;
-}
-main{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
-}
-.pets{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-h2 {
-    color: var(--color-headings);
-    font-family: var(--main-font);
-    text-align: center;
-    font-size: 20px;
-    margin: 20px 0;
-}
-.add-btn{
-    width: 80px;
-    height: 25px;
+.submit {
+    width: 100px;
     background-color: var(--color-primary);
-    margin: auto 0;
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
+    margin: 10px auto ;
     padding: 5px;
-}
-.add-ancor{
     color: var(--color-secondary);
-    border: none;
-    margin: 0;
 }
-.wrapper{
-    text-align: center;
+.error {
+    color: #f00;
 }
-.pet-card{
-    width: 250px;
-    height: 150px;
-    margin: 20px auto;
-    text-align: center;
-    border: 1px solid #eee;
-    border-radius: 5px;
-}
-.pet-name{
-    margin: 10px 0;
-    font-size: 18px;
-    color: var(--color-headings);
-    font-family: var(--main-font);
-}
-.date{
-    color: var(--color-headings);
-    font-size: 14px;
-    margin: 5px 0;
-}
-.client-email{
-    margin: 5px 0 20px 0;
-    color: var(--color-headings);
-}
-.btn-view{
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
-    margin: 2px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-}
-.btn-delete{
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    margin: 2px;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-footer {
-    position: fixed;
-    text-align: center;
-    color: #999393;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-@media screen and (min-width: 576px){
-    nav {
-        height: 50px;
-        padding: 10px;
-    }
-    .logo{
-        width: 100px;
-        height: 50px;
-    }
-    a {
-        font-size: 20px;
-    }
-    h2 {
-        font-size: 24px;
-    }
-    .add-btn {
-        width: 100px;
-        height: 35px;
-    }
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        gap: 10px;
-    }
-    
-}
-@media screen and (min-width: 1000px) {
-   
-    h2 {
-        font-size: 30px;
-    }
-    .wrapper {
-        grid-template-columns: repeat(3, auto);
-    }
-    
-}
-@media screen and (min-width: 1300px) {
-    .wrapper {
-        grid-template-columns: repeat(4, auto);
-    }
+.form-group {
+    width: 200px;
+    height: 200px;
 }

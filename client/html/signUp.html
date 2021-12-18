@@ -12,10 +12,11 @@
         <nav class="navbar">
             <img class="logo" src="../assets/PETTMED.png" alt="logo">
             <ul>
-                <li><a href="login.html">Log In</a></li>
+                <li><a href="index.html">Log In</a></li>
             </ul>
             </nav>
         </header>
+        <div class="line"></div>
     <main>
         <!-- Sign up form -->
         <div class="form-box">
@@ -56,7 +57,6 @@
                     passErr.textContent = "Incorrect  password"
                 } else {
                     location.assign('./login.html')
-
                 }
             } catch (err) {
                 console.log(err)

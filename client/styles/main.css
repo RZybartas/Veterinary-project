@@ -1,7 +1,7 @@
 @import "./reset.css";
 @import "./variables.css";
-@import "./login.css";
 @import "./index.css";
+@import "./home.css";
 @import "./logs.css";
 @import "./addPet.css";
 @import "./addPrescription.css";

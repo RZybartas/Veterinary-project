@@ -1,53 +1,41 @@
-const wrapper = document.querySelector('.wrapper')
-const DB = 'http://localhost:5000/pets';
+const form = document.querySelector("form");
+const emailErr = document.querySelector(".email.error");
+const passErr = document.querySelector(".pass.error");
 
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // Reset errors
+    emailErr.textContent = "";
+    passErr.textContent = "";
+    // Get the values
+    const email = form.email.value;
+    const password = form.password.value;
+    try {
+        const res = await fetch("http://localhost:5000/v1/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        });
+        const data = await res.json();
 
-const displayData = async () => {
-  wrapper.innerHTML = '';
-  
-  const response = await fetch(DB);
-  const data = await response.json();
+        
+        if (data.error) {
+            emailErr.textContent = "Incorrect email"
+            passErr.textContent = "Incorrect  password"
+        } else {
+            location.assign('./home.html')
+        }
 
-  data.map(pet => {
-    const div = document.createElement('div');
-    div.className = 'pet-card';
-    
-    const h3 = document.createElement('h3');
-    h3.className = 'pet-name'
-    h3.innerText = pet.name;
-    const h4 = document.createElement('h4');
-    h4.className = 'date';
-    const date = `${pet.dob}`.slice(0, 10)
-    h4.innerText = date;
-    const p = document.createElement('p');
-    p.className = 'client-email';
-    p.innerText = pet.client_email;
-    
-    const view = document.createElement('button');
-    view.className = 'btn-view';
-    view.innerText = 'View Log';
-    const del = document.createElement('button');
-    del.className = 'btn-delete'
-    del.innerText = 'Delete';
-    
-    view.onclick = () => {
-      window.location.href = `http://127.0.0.1:5500/client/html/log.html?=${pet.id}` 
-    };
-    
-    const deletePet = async () => {
-      await fetch(`${DB}/${pet.id}`, {method: 'DELETE'})
+        sessionStorage.setItem("token", data.token);
+
+        
+    } catch (error) {
+        console.log(error)
     }
-    del.onclick = async () => {
-      await deletePet()
-      await displayData()
-    }
-    wrapper.appendChild(div);
-    div.append(h3, h4, p, view, del)
-  })
-  return wrapper
-}
-
-
-
-
-displayData()
+    
+})

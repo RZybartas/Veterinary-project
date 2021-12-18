@@ -79,7 +79,6 @@ const main = async () => {
         app.use('/logs', logsRoute);
         app.use('/prescriptions', prescRoute);
         app.use('/v1/auth/', auth);
-       
         
 
         app.get('*', (req, res) => {
