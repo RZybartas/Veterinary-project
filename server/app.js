@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
 
-const { port, dbConfig} = require('./config')
+const {dbConfig} = require('./config');
+const port = process.env.PORT || 5000;
 const petsRoute = require('./routes/v1/pets');
 const medsRoute = require('./routes/v1/medications');
 const logsRoute = require('./routes/v1/logs');
